@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+        Descripción: CodigoEjercicio3.1.4
+        Autor: Carlos García Cachón
+        Fecha de creación/modificación: 02/11/2023
+-->
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Carlos García Cachón">
+        <meta name="description" content="CodigoEjercicio3.1.4">
+        <meta name="keywords" content="CodigoEjercicio, 3.1.4">
+        <meta name="generator" content="Apache NetBeans IDE 19">
+        <meta name="generator" content="60">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Carlos García Cachón</title>
+        <link rel="icon" type="image/jpg" href="../webroot/media/images/favicon.ico"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="../webroot/css/style.css">
+    </head>
+
+    <body>
+        <header class="text-center">
+            <h1>4. Crea una aplicación que pida palabras al usuario hasta que pulse el botón cancelar:</h1>
+        </header>
+        <main>
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col text-center">
+                        <p>RECARGA LA PÁGINA SI QUIERES VOLVER A EJECUTAR EL EJERCICIO</p>
+                        <p>RESULTADO:</p>
+                        <script>
+                             /*4. Crea una aplicación que pida palabras al usuario hasta que pulse el botón cancelar. 
+                            Después aparecerá un menú de opciones: 
+                               1) Ver primera palabra insertada 
+                               2) Ver última palabra insertada 
+                               3) Ver todas las palabras 
+                               4) Ver la palabra más larga 
+                               5) Ver la palabra más corta 
+                               6) Número de palabras insertadas 
+                               7) Buscar una palabra 
+                               8) Borrar duplicados 
+                               9) Salir 
+                                */
+                         var aCadena = [];
+                         var entrada = "";
+                         var bSalida = true;
+                         do {
+                            entrada = prompt("Introduce palabras: ");
+                            if (entrada != null) {
+                               aCadena.push(entrada);
+                            }
+                         } while (entrada != null);
+
+                         do {
+                            const opcion = parseInt(prompt(`Menú de opciones:
+                           1) Ver primera palabra insertada
+                           2) Ver última palabra insertada
+                           3) Ver todas las palabras
+                           4) Ver la palabra más larga
+                           5) Ver la palabra más corta
+                           6) Número de palabras insertadas
+                           7) Buscar una palabra
+                           8) Borrar duplicados
+                           9) Salir
+                           Ingrese el número de la opción:`));
+                         switch (opcion) {
+                            case 1:
+                               alert(aCadena[0]);
+                               break;
+                            case 2:
+                               alert(aCadena[aCadena.length-1]);
+                               break;
+                            case 3:
+                               for (let i = 0; i < aCadena.length; i++) {
+                                  if (aCadena[i] != undefined) {
+                                     alert(`La palabra en la posición ${i} es: ${aCadena[i]}`);
+                                  }
+                               }
+                               break;
+                            case 4:
+                               var palabraMayor = aCadena[0];
+                               for (let i = 1; i < aCadena.length; i++) {
+                                  if (aCadena[i] != undefined) {
+                                     if (aCadena[i].length > palabraMayor.length) {
+                                           palabraMayor = aCadena[i];
+                                     }
+                                  }
+                               }
+                               alert("La palabra más larga es "+palabraMayor);
+                               break;
+                            case 5:
+                               var palabraMenor = aCadena[0];
+                               for (let i = 1; i < aCadena.length; i++) {
+                                  if (aCadena[i] != undefined) {
+                                     if (aCadena[i].length < palabraMenor.length) {
+                                           palabraMenor = aCadena[i];
+                                     }
+                                  }
+                               }
+                               alert("La palabra más corta es "+palabraMenor);
+                               break;
+                            case 6:
+                               alert("Hay "+aCadena.length+" palabras.");
+                               break;
+                            case 7:
+                               var palabra = prompt("Introduce palabra a buscar: ");
+                               if (aCadena.includes(palabra)) {
+                                  alert("Se encontro la palabra.");
+                               } else {
+                                  alert("No se encontro la palabra.");
+                               }
+                               break;
+                            case 8:
+                               var aCadenaSinDuplicados =  [...new Set(aCadena)];
+                               alert("Array sin duplicados "+aCadenaSinDuplicados.join(','));
+                               break;
+                            case 9:
+                               alert("Hasta luego.")
+                               bSalida = false;
+                               break;
+                            default:
+                               alert("ERROR EN LA ENTRADA");
+                               break;
+                         }
+                         } while (bSalida);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="position-fixed bottom-0 end-0">
+            <div class="row text-center">
+                <div class="footer-item">
+                    <address>© <a href="../../index.html" style="color: white; text-decoration: none; background-color: #666">Carlos García Cachón</a>
+                        IES LOS SAUCES 2023-24 </address>
+                </div>
+                <div class="footer-item">
+                    <a href="../indexProyectoTema3.html" style="color: white; text-decoration: none; background-color: #666">Inicio</a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://github.com/Fighter-kun?tab=repositories" target="_blank"><img
+                            src="../webroot/media/images/github.png" alt="LogoGitHub" class="pe-5"/></a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    </body>
+
+</html>

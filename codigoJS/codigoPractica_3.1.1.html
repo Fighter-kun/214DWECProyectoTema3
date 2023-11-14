@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+        Descripción: CodigoEjercicio3.1.1
+        Autor: Carlos García Cachón
+        Fecha de creación/modificación: 01/11/2023
+-->
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Carlos García Cachón">
+        <meta name="description" content="CodigoEjercicio3.1.1">
+        <meta name="keywords" content="CodigoEjercicio, 3.1.1">
+        <meta name="generator" content="Apache NetBeans IDE 19">
+        <meta name="generator" content="60">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Carlos García Cachón</title>
+        <link rel="icon" type="image/jpg" href="../webroot/media/images/favicon.ico"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="../webroot/css/style.css">
+    </head>
+
+    <body>
+        <header class="text-center">
+            <h1>1. Crea un script que pida una frase al usuario y se la muestre con la primera letra de cada palabra en mayúsculas:</h1>
+        </header>
+        <main>
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col text-center">
+                        <p>RECARGA LA PÁGINA SI QUIERES VOLVER A EJECUTAR EL EJERCICIO</p>
+                        <p>RESULTADO:</p>
+                        <script>
+                            /*1. Crea un script que pida una frase al usuario y se la muestre con la primera letra de cada palabra en mayúsculas.*/
+                            var fraseUsuario = prompt("Introduce un frase: ");
+                            //Formamos un array sustituyendo los espacion por comas.
+                            var aFraseUsuario = fraseUsuario.split(" ");
+                            /*
+                            Ahora con '.map' cogemos cada elemento del array, con '.charAt(0)' devuelve el primer carácter, con 'toUpperCase()' ponemos esa letra en mayúscula y
+                            con '.slice' devolvemos el resto de la palabra a partir del segundo carácter.
+                            */
+                            var aFraseUsuarioLetraMayuscula = aFraseUsuario.map(aFraseUsuario => aFraseUsuario.charAt(0).toUpperCase() + aFraseUsuario.slice(1).toLowerCase());
+                            //Separamos el array 'aFraseUsuarioLetraMayuscula' y sustituimos las comas por espacios.
+                            var salida = aFraseUsuarioLetraMayuscula.join(" ");
+                            //Si el usuario escribe una frase se devuelve 'Salida' si devuelve el contenido del else.
+                            if(fraseUsuario) {
+                               document.write(salida);
+                            } else {
+                               document.write("No ingreso ninguna frase.");
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="position-fixed bottom-0 end-0">
+            <div class="row text-center">
+                <div class="footer-item">
+                    <address>© <a href="../../index.html" style="color: white; text-decoration: none; background-color: #666">Carlos García Cachón</a>
+                        IES LOS SAUCES 2023-24 </address>
+                </div>
+                <div class="footer-item">
+                    <a href="../indexProyectoTema3.html" style="color: white; text-decoration: none; background-color: #666">Inicio</a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://github.com/Fighter-kun?tab=repositories" target="_blank"><img
+                            src="../webroot/media/images/github.png" alt="LogoGitHub" class="pe-5"/></a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    </body>
+
+</html>

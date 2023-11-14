@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practica 3.2.2</title>
+  <style></style>
+</head>
+<body>
+  <script>
+    /*
+    2. Crea una función que reciba un array de palabras. 
+    La función devolverá un mapa que contenga como clave cada palabra y el valor es el número de veces que esa palabra aparece en el array. 
+    Haremos una página web que lea palabras hasta que el usuario cancele o deje el cuadro vacío y mostraremos las repeticiones de las palabras. 
+    */
+     //Función para contar repeticiones de palabras
+     function contarRepeticionesDePalabras() {
+        const mapPalabras = new Map(); //Declaramos el map
+
+        while (true) {
+          const palabra = prompt("Introduzca una palabra:");
+
+          if (palabra === null || palabra.trim() === "") { //El metodo .trim() elimina los espacios
+            break; //Salir del bucle si el usuario presiona "Cancelar" o deja la entrada vacía
+          }
+
+          const palabraMinusculas = palabra.toLowerCase(); //Pasamos la palabra a minusculas
+          if (mapPalabras.has(palabraMinusculas)) { //Comprobamos si la palabra ingresada esta almacenada
+            mapPalabras.set(palabraMinusculas, mapPalabras.get(palabraMinusculas) + 1); //Si esa palabra existe, se le indica la clave y su valor + 1 , de lo que ya valiera
+          } else {
+            mapPalabras.set(palabraMinusculas, 1); //Si no esta almacenada, la guardamos y la inicializamos con valor 1
+          }
+        }
+
+        return mapPalabras; //Devolvemos el mapa de palabras
+      }
+
+      // Función para mostrar los resultados
+      function mostrarResultados(mapPalabras) {
+        mapPalabras.forEach((repeticiones,palabra) => {
+          document.write("La palabra "+palabra+" se a repetido: "+repeticiones+" veces.<br>");
+        });
+      }
+
+      const mapaResultados = contarRepeticionesDePalabras(); //Llamamos a la función para iniciar el ejercicio.
+      mostrarResultados(mapaResultados); //Llamamos a la función para mostrar los resultados.
+  </script>
+</body>
+</html>

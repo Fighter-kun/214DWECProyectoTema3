@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+        Descripción: CodigoEjercicio3.2.3
+        Autor: Carlos García Cachón
+        Fecha de creación/modificación: 02/11/2023
+-->
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Carlos García Cachón">
+        <meta name="description" content="CodigoEjercicio3.2.3">
+        <meta name="keywords" content="CodigoEjercicio, 3.2.3">
+        <meta name="generator" content="Apache NetBeans IDE 19">
+        <meta name="generator" content="60">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Carlos García Cachón</title>
+        <link rel="icon" type="image/jpg" href="../webroot/media/images/favicon.ico"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="../webroot/css/style.css">
+    </head>
+
+    <body>
+        <header class="text-center">
+            <h1>3. Crear una función para comprobar hasta que punto la función Math.random() es realmente aleatorio:</h1>
+        </header>
+        <main>
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col text-center">
+                        <p>RECARGA LA PÁGINA SI QUIERES VOLVER A EJECUTAR EL EJERCICIO</p>
+                        <p>RESULTADO:</p>
+                        <script>
+                            /*
+                            3. Crear una función para comprobar hasta que punto la función Math.random() es realmente aleatoria. 
+                            La función recibirá un parámetro que por defecto será 10000. Ese, será el número de veces que generaremos números aleatorios del 1 al 10. 
+                            Aunque el ejercicio se puede resolver con arrays, utiliza un mapa donde las claves serán los números del 1 al 10 y los valores, el número de veces que aparece.  
+                            */
+                           //Función para contar repeticiones de palabras
+                           function contarRepeticionesNumerosAleatorios() {
+                              var mapNumeros = new Map(); //Declaración del map
+
+                              //Inicializamos las claves y valores 
+                              mapNumeros.set(1, 0);
+                              mapNumeros.set(2, 0);
+                              mapNumeros.set(3, 0);
+                              mapNumeros.set(4, 0);
+                              mapNumeros.set(5, 0);
+                              mapNumeros.set(6, 0);
+                              mapNumeros.set(7, 0);
+                              mapNumeros.set(8, 0);
+                              mapNumeros.set(9, 0);
+                              mapNumeros.set(10, 0);
+
+                              for (let i = 0; i < 10000; i++) {
+                                var numeroAleatorio = Math.floor(Math.random() * 10) + 1; //Calculamos el número aleatorio entre 1 y 10.
+                                if (mapNumeros.has(numeroAleatorio)) { //Comprobamos si el número ingresado esta almacenado
+                                  mapNumeros.set(numeroAleatorio, mapNumeros.get(numeroAleatorio) + 1); // Si el número existe, sumamos 1 al valor de ese número
+                                } else {
+                                  mapNumeros.set(numeroAleatorio, 1); //Si no esta almacenado, lo guardamos y lo inicializamos con valor 1
+                                }
+                              }
+
+                              return mapNumeros; //Devolvemos el mapa de números 
+                            }
+
+                            // Función para mostrar los resultados
+                            function mostrarResultados(mapNumeros) {
+                              mapNumeros.forEach((repeticiones,numero) => {
+                                document.write("El "+numero+" se a repetido: "+repeticiones+" veces.<br>");
+                              });
+                            }
+
+                            const mapaResultados = contarRepeticionesNumerosAleatorios(); //Llamamos a la función para iniciar el ejercicio.
+                            mostrarResultados(mapaResultados); //Llamamos a la función para mostrar los resultados.
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="position-fixed bottom-0 end-0">
+            <div class="row text-center">
+                <div class="footer-item">
+                    <address>© <a href="../../index.html" style="color: white; text-decoration: none; background-color: #666">Carlos García Cachón</a>
+                        IES LOS SAUCES 2023-24 </address>
+                </div>
+                <div class="footer-item">
+                    <a href="../indexProyectoTema3.html" style="color: white; text-decoration: none; background-color: #666">Inicio</a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://github.com/Fighter-kun?tab=repositories" target="_blank"><img
+                            src="../webroot/media/images/github.png" alt="LogoGitHub" class="pe-5"/></a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    </body>
+
+</html>
+
